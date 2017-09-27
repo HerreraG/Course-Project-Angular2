@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Recipe } from '../recipe-list/recipe.model';
 
 @Component({
   selector: 'app-recipe-list',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+
+  recipes: Recipe[] = [
+    new Recipe('A Test Recipe', 'This is simple a test', 'http://www.seriouseats.com/recipes/assets_c/' +
+    '2016/05/20160503-fava-carrot-ricotta-salad-recipe-1-thumb-1500xauto-431710.jpg')
+  ];
 
   constructor() { }
 
