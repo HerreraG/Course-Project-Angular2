@@ -22,7 +22,6 @@ import { AppRoutingModule } from '../app-routing.module';
     HeaderComponent
   ],
   providers: [
-    ShoppingListService,
     RecipeService,
     DataStorageService,
     AuthService,
