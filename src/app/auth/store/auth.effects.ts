@@ -25,12 +25,13 @@ export class AuthEffects {
       return fromPromise(firebase.auth().currentUser.getToken());
     })
     .mergeMap((token: string) => {
+      this.router.navigate(['/']);
        return [
          {
            type: AuthActions.SIGNUP
          },
          {
-           type: AuthActions.SetToken,
+           type: AuthActions.SET_TOKEN,
            payload: token
          }
        ];
@@ -39,7 +40,7 @@ export class AuthEffects {
   @Effect()
   authSignin = this.actions$
     .ofType(AuthActions.TRY_SIGNIN)
-    .map((action: AuthActions.TrySignup) => {
+    .map((action: AuthActions.TrySignin) => {
       return action.payload;
     })
     .switchMap((authData: { username: string, password: string }) => {
@@ -55,7 +56,7 @@ export class AuthEffects {
            type: AuthActions.SIGNIN
          },
          {
-           type: AuthActions.SetToken,
+           type: AuthActions.SET_TOKEN,
            payload: token
          }
        ];

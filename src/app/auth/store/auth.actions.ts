@@ -18,7 +18,7 @@ export class SignUp implements Action {
 }
 
 export class TrySignin implements Action {
-  readonly type = SIGNIN;
+  readonly type = TRY_SIGNIN;
 
   constructor(public payload: { username: string, password: string }) {}
 }
